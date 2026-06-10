@@ -1,0 +1,5 @@
+title: Zombie 2600
+description: Zombie 2600 public site
+theme: minima
+plugins:
+  - jekyll-feed
