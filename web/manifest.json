@@ -1,0 +1,12 @@
+{
+    "name": "Zombie 2600",
+    "short_name": "Zombie2600",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#060d06",
+    "theme_color": "#060d06",
+    "description": "Procedural zombie survival game",
+    "orientation": "landscape",
+    "prefer_related_applications": false,
+    "icons": []
+}
