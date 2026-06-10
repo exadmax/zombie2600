@@ -1,4 +1,4 @@
-name: Deploy Jekyll Site to GitHub Pages
+name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
@@ -21,19 +21,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          source: ./
-          destination: ./_site
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build web
+        run: flutter build web --release --base-href /zombie2600/
+
+      - name: Disable Jekyll
+        run: touch build/web/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: build/web
 
   deploy:
     environment:
